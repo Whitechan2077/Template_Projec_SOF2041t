@@ -14,51 +14,62 @@ import org.hibernate.query.Query;
  * @author buidu
  */
 public class NhanVienDao implements DAO<NhanVien, String>{
-    private Session session;
+
     private SessionFactory factory;
-    private Transaction transaction;
+
     
     public NhanVienDao(SessionFactory factory) {
         this.factory = factory;
-        this.session = factory.openSession();
-        this.transaction = session.getTransaction();
+
     }
     
     @Override
     public void insert(NhanVien e) {
-        transaction.begin();
-        session.persist(e);
-        transaction.commit();
+        try (Session session = factory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.persist(e);
+            transaction.commit();
+        }
     }
 
     @Override
     public void delete(NhanVien e) {
-        transaction.begin();
-        session.remove(e);
-        transaction.commit();
+         try (Session session = factory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.remove(e);
+            transaction.commit();
+    }
     }
 
     @Override
     public void update(NhanVien e) {
-        transaction.begin();
-        session.merge(e);
-        transaction.commit();
+       try (Session session = factory.openSession()) {
+            Transaction transaction = session.getTransaction();
+            transaction.begin();
+            session.merge(e);
+            transaction.commit();
+    }
     }
 
     @Override
     public List<NhanVien> getAll() {
-        Query<NhanVien> query = session.getNamedQuery("NhanVien.findAll");
+        Session session = factory.openSession();
+          Query<NhanVien> query = session.getNamedQuery("NhanVien.findAll");
         List<NhanVien> list = query.getResultList();
         return list;
     }
-
+      
     @Override
     public NhanVien getByID(String id) {
-        NhanVien nhanVien = null;
+        NhanVien nhanVien = null;    
         try {
-            Query<NhanVien> query = this.session.getNamedQuery("NhanVien.findByMaNV");
-            query.setParameter("maNV", id);
-            nhanVien = query.getSingleResult();
+            try (Session session = factory.openSession()) {
+                Query<NhanVien> query = session.getNamedQuery("NhanVien.findByMaNV");
+                query.setParameter("maNV", id);
+                nhanVien = query.getSingleResult();
+            }
         } catch (Exception e) {
             
         }
