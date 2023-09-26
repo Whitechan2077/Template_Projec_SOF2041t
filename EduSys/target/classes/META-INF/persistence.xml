@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+  <persistence-unit name="com.mycompany_EduSys_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.edusys.dao.ChuyenDe</class>
+    <class>com.edusys.entity.NewEntity</class>
+    <class>com.edusys.dao.KhoaHoc</class>
+    <class>com.edusys.dao.NguoiHoc</class>
+    <class>com.edusys.dao.HocVien</class>
+    <class>dao.NhanVien</class>
+    <class>com.edusys.entity.NhanVien_1</class>
+    <class>com.edusys.entity.NhanVien</class>
+    <class>com.edusys.entity.ChuyenDe</class>
+    <class>com.edusys.entity.KhoaHoc</class>
+    <class>com.edusys.entity.NguoiHoc</class>
+    <class>com.edusys.entity.HocVien</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=EduSys;encrypt=true;trustServerCertificate=true"/>
+      <property name="javax.persistence.jdbc.user" value="sa"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="06122004"/>
+    </properties>
+  </persistence-unit>
+</persistence>
