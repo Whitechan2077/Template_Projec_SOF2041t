@@ -26,4 +26,7 @@ public class MsgBox {
     public static String prompt(Component parent, String message) {
         return JOptionPane.showInputDialog(parent, message, "Hệ thống quản lý đào tạo", JOptionPane.INFORMATION_MESSAGE);
     }
+    public static void Message(Component parent,String message,String tile,int type){
+        JOptionPane.showMessageDialog(parent, message, message, type);
+    }
 }

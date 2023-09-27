@@ -42,6 +42,7 @@ public class KhoaHocDao implements DAO<KhoaHoc, Integer>{
         try (Session session = factory.openSession()) {
             transaction = session.getTransaction();
             transaction.begin();
+            session.remove(e);
             transaction.commit();
         }catch(Exception ex){
             transaction.rollback();

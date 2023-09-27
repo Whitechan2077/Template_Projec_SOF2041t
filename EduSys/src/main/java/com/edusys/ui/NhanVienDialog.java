@@ -24,6 +24,7 @@ public class NhanVienDialog extends javax.swing.JDialog {
         initComponents();
         dao = new NhanVienDao(HibernateUtil.getFactory());
         nhanVien = new NhanVien();
+        setLocationRelativeTo(null);
     }
     public NhanVien createNhanVien(){
         nhanVien.setHoTen(txtHovaten.getText());

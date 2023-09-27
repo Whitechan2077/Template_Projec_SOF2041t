@@ -9,6 +9,7 @@ import dao.NguoiHocDao;
 import dao.NhanVienDao;
 import javax.swing.table.DefaultTableModel;
 import utils.HibernateUtil;
+import utils.XAuth;
 
 /**
  *
@@ -23,6 +24,7 @@ public class NguoiHocDialog extends javax.swing.JDialog {
         initComponents();
         dao = new NguoiHocDao(HibernateUtil.getFactory());
         nguoiHoc = new NguoiHoc(); 
+        setLocationRelativeTo(null);
     }
     public NguoiHoc createNguoiHoc(){
         nguoiHoc.setMaNH(txtMaNguoiHoc.getText());
@@ -36,7 +38,7 @@ public class NguoiHocDialog extends javax.swing.JDialog {
         }
         else
             nguoiHoc.setGioiTinh(true);
-        nguoiHoc.setMaNV(nhanVienDao.getByID("vuthuylinh"));
+        nguoiHoc.setMaNV(XAuth.user);
         nguoiHoc.setGhiChu(txtGhiChu.getText());
         return nguoiHoc;
     }

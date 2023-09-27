@@ -39,6 +39,8 @@ public class HocVienDialog extends javax.swing.JDialog {
         khoaHocDao = new KhoaHocDao(HibernateUtil.getFactory());
         nguoiHocDao = new NguoiHocDao(HibernateUtil.getFactory());
         hocVienDao = new HocVienDao(HibernateUtil.getFactory());
+                setLocationRelativeTo(null);
+
     }
     public void getAllChuyenDe(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboChuyenDe.getModel();

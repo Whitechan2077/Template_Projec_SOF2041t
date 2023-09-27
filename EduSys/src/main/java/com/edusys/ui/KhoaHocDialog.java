@@ -13,6 +13,7 @@ import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import utils.HibernateUtil;
+import utils.XAuth;
 
 /**
  *
@@ -39,6 +40,9 @@ public class KhoaHocDialog extends javax.swing.JDialog {
         dcsNgaytao.setEnabled(false);
         dateNow = new Date();
         nhanVienDao = new NhanVienDao(HibernateUtil.getFactory());
+        txtEm.setText(XAuth.user.getHoTen());
+                setLocationRelativeTo(null);
+
     }
     public void getAllChuyenDe(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboMajor.getModel();
@@ -65,7 +69,7 @@ public class KhoaHocDialog extends javax.swing.JDialog {
         kh.setHocPhi(cd.getHocPhi());
         kh.setThoiLuong(cd.getThoiLuong());
         kh.setNgayKG(dcsKhaiGiang.getDate());
-        kh.setMaNV(nhanVienDao.getByID("vuthuylinh"));
+        kh.setMaNV(XAuth.user);
         kh.setGhiChu(txtaGhiChu.getText());
         return kh;
     }
@@ -118,7 +122,7 @@ public class KhoaHocDialog extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtChuyenDe = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtEm = new javax.swing.JTextField();
         txtThoiLuong = new javax.swing.JTextField();
         txtHocPhi = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -184,9 +188,9 @@ public class KhoaHocDialog extends javax.swing.JDialog {
 
         jLabel7.setText("Ngày tạo");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtEm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtEmActionPerformed(evt);
             }
         });
 
@@ -232,7 +236,7 @@ public class KhoaHocDialog extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtThoiLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEm, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dcsNgaytao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,7 +271,7 @@ public class KhoaHocDialog extends javax.swing.JDialog {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(dcsNgaytao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -395,9 +399,9 @@ public class KhoaHocDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtEmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtEmActionPerformed
 
     private void txtThoiLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtThoiLuongActionPerformed
         // TODO add your handling code here:
@@ -510,9 +514,9 @@ public class KhoaHocDialog extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTable tblKhoaHoc;
     private javax.swing.JTextField txtChuyenDe;
+    private javax.swing.JTextField txtEm;
     private javax.swing.JTextField txtHocPhi;
     private javax.swing.JTextField txtThoiLuong;
     private javax.swing.JTextArea txtaGhiChu;
