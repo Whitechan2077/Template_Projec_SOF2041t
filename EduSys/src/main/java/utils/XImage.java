@@ -61,4 +61,13 @@ public class XImage {
         }
        
     }
+    //FileDialog fd = new FileDialog(this, "Choose a file", FileDialog.LOAD);
+//fd.setDirectory("C:\\");
+//fd.setFile("*");
+//fd.setVisible(true);
+//String filename = fd.getFile();
+//if (filename == null)
+//  System.out.println("You cancelled the choice");
+//else
+//  System.out.println("You chose " + filename);
 }

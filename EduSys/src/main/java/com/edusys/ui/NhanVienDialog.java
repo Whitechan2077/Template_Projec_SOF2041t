@@ -55,13 +55,12 @@ public class NhanVienDialog extends javax.swing.JDialog {
     }
     public void setEdit(boolean  e){
         txtMa.setEditable(e);
-        txtPassoword.setEditable(e);
     }
     public void fill(){
         DefaultTableModel model = (DefaultTableModel) tblEm.getModel();
         model.setRowCount(0);
         dao.getAll().forEach((t) -> {
-            model.addRow(new Object[]{t.getMaNV(),t.getHoTen(),t.getMaNV(),t.getVaiTro()});
+            model.addRow(new Object[]{t.getMaNV(),t.getHoTen(),t.getMatKhau(),t.getVaiTro()});
         });
     }
     public void clear(){
